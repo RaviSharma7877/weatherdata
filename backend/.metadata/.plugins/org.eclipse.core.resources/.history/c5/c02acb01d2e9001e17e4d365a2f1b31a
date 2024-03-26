@@ -1,0 +1,31 @@
+package com.RSstudies.servise;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class WeatherServise {
+
+	
+	private static final String XRapidAPIKey = "5e3134c76amsh5cc4891dcc4ecd6p104170jsnf6803a56aedb";
+	private static final String XRapidAPIHost= "forecast9.p.rapidapi.com";
+	
+	public Object getdataList(String country) {
+		
+		try {
+			String url = "https://forecast9.p.rapidapi.com/rapidapi/forecast/"+country+"/summary/";
+			
+		} catch (Exception e) {
+			log.error("something went wrong with Rapid API");
+			throw new ResponseStatusException(
+					HttpStatus.INTERNAL_SERVER_ERROR,
+					"Exception while calling endpint ",
+					e
+					);
+		}
+	}
+}

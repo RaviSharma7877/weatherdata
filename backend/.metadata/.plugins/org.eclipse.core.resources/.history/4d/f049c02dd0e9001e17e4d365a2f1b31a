@@ -1,0 +1,5 @@
+package com.RSstudies.controller;
+
+public class WeatherController {
+
+}
